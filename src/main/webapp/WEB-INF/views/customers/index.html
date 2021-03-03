@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All customers</title>
+</head>
+<body>
+
+<h1>Customers</h1>
+<a href="/customers/new">
+    <input type="submit" value="Create new customer"/>
+</a>
+<br/>
+<hr/>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Tabnum</th>
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Email</th>
+        <th>Date of birth</th>
+    </tr>
+    </thead>
+    <tbody th:each="customer : ${customers}">
+    <tr>
+        <td>
+            <a th:href="@{/customers/{id}(id=${customer.getId()})}"
+               th:text="${customer.getId()}"></a>
+        </td>
+        <td th:text="${customer.getTabnum()}"></td>
+        <td th:text="${customer.getName()}"></td>
+        <td th:text="${customer.getSurname()}"></td>
+        <td th:text="${customer.getEmail()}"></td>
+        <td th:text="${customer.getBirth()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
