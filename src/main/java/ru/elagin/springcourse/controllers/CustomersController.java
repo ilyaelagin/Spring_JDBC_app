@@ -70,8 +70,4 @@ public class CustomersController {
         return "redirect:/customers";
     }
 
-    @InitBinder
-    private void initDirectFieldAccess(DataBinder dataBinder) {
-        dataBinder.initDirectFieldAccess();
-    }
 }
